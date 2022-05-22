@@ -23,17 +23,10 @@ public class EItem {
 
     public EItem (itemType _type, String _name, double _price) throws IllegalArgumentException, NullPointerException{
         if(_type!=null){
-            switch(_type){
-                case Processor:
-                case Motherboard:
-                case Mouse:
-                case Keyboard:
-                    type=_type;
-                    break;  
-                default:
-                    throw new IllegalArgumentException("Invalid itemType number");
-            }    
-        }else throw new NullPointerException("Invalid itemType reference (null)");
+            type=_type; 
+        }else {
+            throw new NullPointerException("Invalid itemType reference (null)");
+        }
 
         if(_name!=null){
             if(!(_name.length()<3 || _name.length()>20)){

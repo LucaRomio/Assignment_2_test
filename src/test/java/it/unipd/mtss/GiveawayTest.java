@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
 import it.unipd.mtss.exception.BillException;
 
 public class GiveawayTest{
-	List<Order> templateList = new ArrayList<Order>(0), dummyList = new ArrayList<Order>(0), coolList = new ArrayList<Order>(0);
+	List<Order> templateList = new ArrayList<Order>(0), dummyList = new ArrayList<Order>(0), coolList = new ArrayList<Order>(0), shorter_coolList = new ArrayList<Order>(0);
 	Giveaway giv;
 	@BeforeEach
 	public void initialize() throws BillException{
@@ -85,6 +85,15 @@ public class GiveawayTest{
 			templateList.get(15)
 		);
 
+        shorter_coolList = List.of(
+            templateList.get(1),
+			templateList.get(2),
+			templateList.get(5),
+			templateList.get(6)
+        );
+
+        
+
 	}
 
 	//TEST COSTRUTTORE
@@ -128,8 +137,11 @@ public class GiveawayTest{
 	//Testa se, data una lista di candidati correttamente selezionati, qualcuno vince
 	@Test
 	public void testGiveawaySelection(){
-		giv = new Giveaway(coolList);
-		Assertions.assertTrue(giv.giveawaySelection());
+        Assertions.assertAll(
+            ()->Assertions.assertTrue(new Giveaway(coolList).giveawaySelection()),                                  //Lista 10+ candidati
+            ()->Assertions.assertFalse(new Giveaway(new ArrayList<Order>(0)).giveawaySelection()),  //Lista vuota
+            ()->Assertions.assertTrue(new Giveaway(shorter_coolList).giveawaySelection())                           //Lista <10 candidati ->> "Tutti vincono"
+        );	
 	}
 
 }

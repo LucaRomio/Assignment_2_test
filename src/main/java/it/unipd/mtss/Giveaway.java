@@ -58,7 +58,7 @@ public class Giveaway {
             
             } 
             System.out.println("I vincitori sono: ");
-            for(int i=0; i<Math.max(winners.size(), NUMBEROFWINNERS); i++){
+            for(int i=0; i<winners.size(); i++){
                 System.out.println( winners.get(i).getUser().getId()+"\t\t"
                                     +winners.get(i).getUser().getName()+"\t\t"
                                     +winners.get(i).getUser().getSurname()
