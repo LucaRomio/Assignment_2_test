@@ -25,9 +25,6 @@ jobs:
       run: mvn -B clean package jacoco:report
             
     - name: Coveralls
-      uses: coverallsapp/github-action@master
-      with:
-        base-path: \home\runner\
-        github-token: ${{ secrets.COVERALLS_TOKEN }}
+      run: mvn coverall:report --define repoToken=${{ secrets.COVERALLS_TOKEN }}
       
  
