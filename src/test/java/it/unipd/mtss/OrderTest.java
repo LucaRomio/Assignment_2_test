@@ -169,7 +169,7 @@ public class OrderTest{
 			new EItem(EItem.itemType.Motherboard, "Kimberlite_Elec", 60.0)
 		);//495-2
 
-		List<EItem> Equal_Extra_List = List.of(												
+		List<EItem> Equal_Extra_List_A = List.of(												
 			new EItem(EItem.itemType.Processor, "Beta", 4.0),					//5 processors
 			new EItem(EItem.itemType.Processor, "Gamma", 7.0),
 			new EItem(EItem.itemType.Processor, "Delta", 10.0),
@@ -186,6 +186,36 @@ public class OrderTest{
 			new EItem(EItem.itemType.Mouse, "Coconut", 25.0),
 			new EItem(EItem.itemType.Mouse, "Lemon", 27.0),
 			new EItem(EItem.itemType.Keyboard, "Bird", 6.0),						//10 = 10
+			new EItem(EItem.itemType.Keyboard, "Camel", 9.0),
+			new EItem(EItem.itemType.Keyboard, "Dinosaur", 12.0),
+			new EItem(EItem.itemType.Keyboard, "Elephant", 15.0),
+			new EItem(EItem.itemType.Keyboard, "Frog", 18.0),
+			new EItem(EItem.itemType.Keyboard, "Giraffe", 20.0),
+			new EItem(EItem.itemType.Keyboard, "Hippo", 22.0),
+			new EItem(EItem.itemType.Keyboard, "Indian_Rhino", 24.0),
+			new EItem(EItem.itemType.Keyboard, "Jungle_Spider", 26.0),
+			new EItem(EItem.itemType.Keyboard, "Koala", 28.0),
+			new EItem(EItem.itemType.Motherboard, "ASUS_ROG", 30.0),				//extra
+			new EItem(EItem.itemType.Motherboard, "Kimberlite_Elec", 60.0)
+		);//490-5
+
+        List<EItem> Equal_Extra_List_B = List.of(												
+			new EItem(EItem.itemType.Processor, "Beta", 4.0),					//5 processors
+			new EItem(EItem.itemType.Processor, "Gamma", 7.0),
+			new EItem(EItem.itemType.Processor, "Delta", 10.0),
+			new EItem(EItem.itemType.Processor, "Epsilon", 13.0),
+			new EItem(EItem.itemType.Processor, "Omega", 16.0),					
+			new EItem(EItem.itemType.Mouse, "Orange", 6.0),						//10 mouse
+			new EItem(EItem.itemType.Mouse, "Banana", 8.0),
+			new EItem(EItem.itemType.Mouse, "Grape", 11.0),
+			new EItem(EItem.itemType.Mouse, "Pear", 14.0),
+			new EItem(EItem.itemType.Mouse, "Peach", 17.0),
+			new EItem(EItem.itemType.Mouse, "Apricot", 19.0),
+			new EItem(EItem.itemType.Mouse, "Strawberry", 21.0),
+			new EItem(EItem.itemType.Mouse, "Blackberry", 23.0),
+			new EItem(EItem.itemType.Mouse, "Coconut", 25.0),
+			new EItem(EItem.itemType.Mouse, "Lemon", 27.0),
+			new EItem(EItem.itemType.Keyboard, "Bird", 5.0),						//10 = 10
 			new EItem(EItem.itemType.Keyboard, "Camel", 9.0),
 			new EItem(EItem.itemType.Keyboard, "Dinosaur", 12.0),
 			new EItem(EItem.itemType.Keyboard, "Elephant", 15.0),
@@ -241,7 +271,8 @@ public class OrderTest{
 		Assertions.assertAll(
 			()-> Assertions.assertEquals(495.5, order.getOrderPrice(FivePlus_TenPlus_Equal_Extra_List, user)),
 			()-> Assertions.assertEquals(493.0, order.getOrderPrice(TenPlus_Equal_Extra_List, user)),
-			()-> Assertions.assertEquals(485, order.getOrderPrice(Equal_Extra_List, user)),
+			()-> Assertions.assertEquals(485, order.getOrderPrice(Equal_Extra_List_A, user)),
+            ()-> Assertions.assertEquals(485, order.getOrderPrice(Equal_Extra_List_B, user)),
 			()-> Assertions.assertEquals(118, order.getOrderPrice(NoExtra_List, user)),
 			()-> Assertions.assertEquals(9, order.getOrderPrice(Low_List, user)),
 			()-> Assertions.assertEquals(4.0, order.getOrderPrice(OnlyProcessor_List, user)),

@@ -24,7 +24,7 @@ public class EItemTest {
             new EItem(null, "Tastiera bella", 25.0);
         }
         catch(NullPointerException e){
-            Assertions.assertEquals(e.getMessage(), "Invalid itemType reference (null)");
+            Assertions.assertEquals("Invalid itemType reference (null)", e.getMessage());
         }
     }
 
