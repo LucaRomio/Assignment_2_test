@@ -25,6 +25,6 @@ jobs:
       run: mvn -B clean package jacoco:report
             
     - name: Coveralls
-      run: mvn coveralls:report --define repoToken=${{ secrets.COVERALLS_TOKEN }}
+      run: mvn -B coveralls:report --define repoToken=${{ secrets.COVERALLS_TOKEN }}
       
  
