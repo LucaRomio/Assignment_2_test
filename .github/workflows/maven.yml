@@ -24,4 +24,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B clean package jacoco:report
       
+    - name: Coveralls
+      run: mvn -B coveralls:report --define repoToken=${{ secrets.COVERALLS_TOKEN }}
+      
  
